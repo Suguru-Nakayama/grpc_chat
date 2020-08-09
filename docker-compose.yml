@@ -19,6 +19,27 @@ services:
         volumes:
             - ./api:/go/src/app
         command: go run ./
+        depends_on:
+            - db
+    
+    db:
+        build: 
+            context: .
+            dockerfile: ./docker/db/Dockerfile
+        container_name: db
+        environment: 
+            MYSQL_ROOT_PASSWORD: MYSQL_ROOT_PASSWORD
+            MYSQL_DATABASE: MYSQL_DATABASE
+            MYSQL_USER: MYSQL_USER
+            MYSQL_PASSWORD: MYSQL_PASSWORD
+        command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+        hostname: mysql
+        ports: 
+            - "3306:3306"
+        volumes: 
+            - ./mysql/data:/var/lib/mysql
+            - ./mysql/conf.d:/etc/mysql/conf.d
+        restart: always
     
     client:
         build: 
