@@ -1,0 +1,35 @@
+version: "3.7"
+
+services:
+    proxy:
+        build:
+            context: .
+            dockerfile: ./docker/proxy/Dockerfile
+        ports:
+            - "8080:8080"
+        container_name: "proxy"
+
+    api:
+        build:
+            context: .
+            dockerfile: ./docker/api/Dockerfile
+        container_name: api
+        ports: 
+            - "9090:9090"
+        volumes:
+            - ./api:/go/src/app
+        command: go run ./
+    
+    client:
+        build: 
+            context: .
+            dockerfile: ./docker/client/Dockerfile
+        container_name: client
+        environment: 
+            - EXTEND_ESLINT=true
+        ports: 
+            - "3000:3000"
+        volumes:
+            - ./client:/client
+        command: yarn start
+        tty: true
