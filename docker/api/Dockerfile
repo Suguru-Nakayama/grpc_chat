@@ -19,6 +19,12 @@ RUN go get google.golang.org/grpc
 # Install protoc-gen-go
 RUN go get github.com/golang/protobuf/protoc-gen-go
 
+RUN apt-get install -y curl
+
+# Get golang-migrate
+RUN curl -L https://github.com/golang-migrate/migrate/releases/download/v4.11.0/migrate.linux-amd64.tar.gz | tar xvz
+RUN mv ./migrate.linux-amd64 /usr/bin/migrate
+
 WORKDIR /go/src/app
 COPY . .
 
