@@ -1,4 +1,4 @@
-package repository
+package config
 
 import (
 	"fmt"
@@ -17,19 +17,7 @@ const (
 	LOCATION   = "Local"
 )
 
-type Repository struct {
-	*gorm.DB
-}
-
-func NewRepository() (*Repository, error) {
-	db, err := getDBConnection()
-	if err != nil {
-		return nil, err
-	}
-	return &Repository{db}, nil
-}
-
-func getDBConnection() (*gorm.DB, error) {
+func GetDBConnection() (*gorm.DB, error) {
 	config := fmt.Sprintf("%s:%s@tcp(db:%d)/%s?charset=%s&parseTime=%s&loc=%s",
 		os.Getenv("DB_USER"),
 		os.Getenv("DB_PASSWORD"),

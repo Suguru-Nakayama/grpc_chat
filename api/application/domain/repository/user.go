@@ -1,0 +1,9 @@
+package repository
+
+import (
+	"grpc-chat/api/application/domain/model"
+)
+
+type UserRepository interface {
+	Create(lastName, firstName, email, password string) (*model.User, error)
+}

@@ -1,13 +1,13 @@
 package main
 
 import (
+	"grpc-chat/api/application/config"
 	"grpc-chat/api/application/handler"
-	"grpc-chat/api/application/repository"
+	"grpc-chat/api/application/infrastructure/persistence"
+	"grpc-chat/api/application/usecase"
 	"grpc-chat/api/gen/pb"
 	"log"
 	"net"
-
-	_ "github.com/jinzhu/gorm/dialects/mysql"
 
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/reflection"
@@ -22,13 +22,15 @@ func main() {
 	}
 	s := grpc.NewServer()
 
-	r, err := repository.NewRepository()
+	db, err := config.GetDBConnection()
 	if err != nil {
-		log.Fatalln(err)
+		log.Fatalf("Cannot connect db, %v\n", err)
 	}
+	up := persistence.NewUserPesistence(db)
+	au := usecase.NewAuthUseCase(up)
+	ah := handler.NewAuthHandler(au)
 
-	h := handler.NewHandler(r)
-	pb.RegisterAuthServer(s, h)
+	pb.RegisterAuthServer(s, ah)
 	reflection.Register(s)
 
 	log.Println("starting gRPC server...")

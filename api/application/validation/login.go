@@ -6,28 +6,24 @@ import (
 	"github.com/go-playground/validator/v10"
 )
 
-type SignUpValidator struct {
+type LogInValidator struct {
 	LastName  string `validate:"required,min=1,max=25"`
 	FirstName string `validate:"required,min=1,max=25"`
-	Email     string `validate:"required,email"`
-	Password  string `validate:"required,password"`
 }
 
-func NewSignUpValidator(lastName, firstName, email, password string) *SignUpValidator {
-	return &SignUpValidator{
+func NewLogInValidator(lastName, firstName string) *LogInValidator {
+	return &LogInValidator{
 		LastName:  lastName,
 		FirstName: firstName,
-		Email:     email,
-		Password:  password,
 	}
 }
 
-func (user *SignUpValidator) Validate() map[string]string {
+func (luv *LogInValidator) Validate() map[string]string {
 	v := validator.New()
 	v.RegisterValidation("password", validPassword)
 
 	errors := make(map[string]string, 0)
-	if err := v.Struct(user); err != nil {
+	if err := v.Struct(luv); err != nil {
 		for _, err := range err.(validator.ValidationErrors) {
 			var msg string
 			field := string(err.Field())
