@@ -14,6 +14,10 @@ services:
             context: .
             dockerfile: ./docker/api/Dockerfile
         container_name: api
+        environment: 
+            JWT_SECRET: ${AUTH_SECRET}
+            DB_USER: ${MYSQL_USER}
+            DB_PASSWORD: ${MYSQL_PASSWORD}
         ports: 
             - "9090:9090"
         volumes:
@@ -28,10 +32,10 @@ services:
             dockerfile: ./docker/db/Dockerfile
         container_name: db
         environment: 
-            MYSQL_ROOT_PASSWORD: MYSQL_ROOT_PASSWORD
-            MYSQL_DATABASE: MYSQL_DATABASE
-            MYSQL_USER: MYSQL_USER
-            MYSQL_PASSWORD: MYSQL_PASSWORD
+            MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+            MYSQL_DATABASE: ${MYSQL_DATABASE}
+            MYSQL_USER: ${MYSQL_USER}
+            MYSQL_PASSWORD: ${MYSQL_PASSWORD}
         command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
         hostname: mysql
         ports: 
@@ -39,6 +43,7 @@ services:
         volumes: 
             - ./mysql/data:/var/lib/mysql
             - ./mysql/conf.d:/etc/mysql/conf.d
+            - ./mysql/initdb.d:/docker-entrypoint-initdb.d
         restart: always
     
     client:
