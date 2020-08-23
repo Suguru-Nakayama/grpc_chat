@@ -7,6 +7,7 @@
  * @public
  */
 // GENERATED CODE -- DO NOT EDIT!
+/* eslint-disable */
 
 var jspb = require('google-protobuf');
 var goog = jspb;
@@ -26,7 +27,7 @@ goog.exportSymbol('proto.auth.SignUpResponse', null, global);
  * @extends {jspb.Message}
  * @constructor
  */
-proto.auth.SignUpRequest = function(opt_data) {
+proto.auth.SignUpRequest = function (opt_data) {
   jspb.Message.initialize(this, opt_data, 0, -1, null, null);
 };
 goog.inherits(proto.auth.SignUpRequest, jspb.Message);
@@ -47,7 +48,7 @@ if (goog.DEBUG && !COMPILED) {
  * @extends {jspb.Message}
  * @constructor
  */
-proto.auth.SignUpResponse = function(opt_data) {
+proto.auth.SignUpResponse = function (opt_data) {
   jspb.Message.initialize(this, opt_data, 0, -1, null, null);
 };
 goog.inherits(proto.auth.SignUpResponse, jspb.Message);
@@ -68,7 +69,7 @@ if (goog.DEBUG && !COMPILED) {
  * @extends {jspb.Message}
  * @constructor
  */
-proto.auth.LogInRequest = function(opt_data) {
+proto.auth.LogInRequest = function (opt_data) {
   jspb.Message.initialize(this, opt_data, 0, -1, null, null);
 };
 goog.inherits(proto.auth.LogInRequest, jspb.Message);
@@ -89,7 +90,7 @@ if (goog.DEBUG && !COMPILED) {
  * @extends {jspb.Message}
  * @constructor
  */
-proto.auth.LogInResponse = function(opt_data) {
+proto.auth.LogInResponse = function (opt_data) {
   jspb.Message.initialize(this, opt_data, 0, -1, null, null);
 };
 goog.inherits(proto.auth.LogInResponse, jspb.Message);
@@ -104,45 +105,45 @@ if (goog.DEBUG && !COMPILED) {
 
 
 if (jspb.Message.GENERATE_TO_OBJECT) {
-/**
- * Creates an object representation of this proto.
- * Field names that are reserved in JavaScript and will be renamed to pb_name.
- * Optional fields that are not set will be set to undefined.
- * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
- * For the list of reserved names please see:
- *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
- * @param {boolean=} opt_includeInstance Deprecated. whether to include the
- *     JSPB instance for transitional soy proto support:
- *     http://goto/soy-param-migration
- * @return {!Object}
- */
-proto.auth.SignUpRequest.prototype.toObject = function(opt_includeInstance) {
-  return proto.auth.SignUpRequest.toObject(opt_includeInstance, this);
-};
-
-
-/**
- * Static version of the {@see toObject} method.
- * @param {boolean|undefined} includeInstance Deprecated. Whether to include
- *     the JSPB instance for transitional soy proto support:
- *     http://goto/soy-param-migration
- * @param {!proto.auth.SignUpRequest} msg The msg instance to transform.
- * @return {!Object}
- * @suppress {unusedLocalVariables} f is only used for nested messages
- */
-proto.auth.SignUpRequest.toObject = function(includeInstance, msg) {
-  var f, obj = {
-    lastname: jspb.Message.getFieldWithDefault(msg, 1, ""),
-    firstname: jspb.Message.getFieldWithDefault(msg, 2, ""),
-    email: jspb.Message.getFieldWithDefault(msg, 3, ""),
-    password: jspb.Message.getFieldWithDefault(msg, 4, "")
+  /**
+   * Creates an object representation of this proto.
+   * Field names that are reserved in JavaScript and will be renamed to pb_name.
+   * Optional fields that are not set will be set to undefined.
+   * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
+   * For the list of reserved names please see:
+   *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
+   * @param {boolean=} opt_includeInstance Deprecated. whether to include the
+   *     JSPB instance for transitional soy proto support:
+   *     http://goto/soy-param-migration
+   * @return {!Object}
+   */
+  proto.auth.SignUpRequest.prototype.toObject = function (opt_includeInstance) {
+    return proto.auth.SignUpRequest.toObject(opt_includeInstance, this);
   };
 
-  if (includeInstance) {
-    obj.$jspbMessageInstance = msg;
-  }
-  return obj;
-};
+
+  /**
+   * Static version of the {@see toObject} method.
+   * @param {boolean|undefined} includeInstance Deprecated. Whether to include
+   *     the JSPB instance for transitional soy proto support:
+   *     http://goto/soy-param-migration
+   * @param {!proto.auth.SignUpRequest} msg The msg instance to transform.
+   * @return {!Object}
+   * @suppress {unusedLocalVariables} f is only used for nested messages
+   */
+  proto.auth.SignUpRequest.toObject = function (includeInstance, msg) {
+    var f, obj = {
+      lastname: jspb.Message.getFieldWithDefault(msg, 1, ""),
+      firstname: jspb.Message.getFieldWithDefault(msg, 2, ""),
+      email: jspb.Message.getFieldWithDefault(msg, 3, ""),
+      password: jspb.Message.getFieldWithDefault(msg, 4, "")
+    };
+
+    if (includeInstance) {
+      obj.$jspbMessageInstance = msg;
+    }
+    return obj;
+  };
 }
 
 
@@ -151,7 +152,7 @@ proto.auth.SignUpRequest.toObject = function(includeInstance, msg) {
  * @param {jspb.ByteSource} bytes The bytes to deserialize.
  * @return {!proto.auth.SignUpRequest}
  */
-proto.auth.SignUpRequest.deserializeBinary = function(bytes) {
+proto.auth.SignUpRequest.deserializeBinary = function (bytes) {
   var reader = new jspb.BinaryReader(bytes);
   var msg = new proto.auth.SignUpRequest;
   return proto.auth.SignUpRequest.deserializeBinaryFromReader(msg, reader);
@@ -165,32 +166,32 @@ proto.auth.SignUpRequest.deserializeBinary = function(bytes) {
  * @param {!jspb.BinaryReader} reader The BinaryReader to use.
  * @return {!proto.auth.SignUpRequest}
  */
-proto.auth.SignUpRequest.deserializeBinaryFromReader = function(msg, reader) {
+proto.auth.SignUpRequest.deserializeBinaryFromReader = function (msg, reader) {
   while (reader.nextField()) {
     if (reader.isEndGroup()) {
       break;
     }
     var field = reader.getFieldNumber();
     switch (field) {
-    case 1:
-      var value = /** @type {string} */ (reader.readString());
-      msg.setLastname(value);
-      break;
-    case 2:
-      var value = /** @type {string} */ (reader.readString());
-      msg.setFirstname(value);
-      break;
-    case 3:
-      var value = /** @type {string} */ (reader.readString());
-      msg.setEmail(value);
-      break;
-    case 4:
-      var value = /** @type {string} */ (reader.readString());
-      msg.setPassword(value);
-      break;
-    default:
-      reader.skipField();
-      break;
+      case 1:
+        var value = /** @type {string} */ (reader.readString());
+        msg.setLastname(value);
+        break;
+      case 2:
+        var value = /** @type {string} */ (reader.readString());
+        msg.setFirstname(value);
+        break;
+      case 3:
+        var value = /** @type {string} */ (reader.readString());
+        msg.setEmail(value);
+        break;
+      case 4:
+        var value = /** @type {string} */ (reader.readString());
+        msg.setPassword(value);
+        break;
+      default:
+        reader.skipField();
+        break;
     }
   }
   return msg;
@@ -201,7 +202,7 @@ proto.auth.SignUpRequest.deserializeBinaryFromReader = function(msg, reader) {
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
-proto.auth.SignUpRequest.prototype.serializeBinary = function() {
+proto.auth.SignUpRequest.prototype.serializeBinary = function () {
   var writer = new jspb.BinaryWriter();
   proto.auth.SignUpRequest.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
@@ -215,7 +216,7 @@ proto.auth.SignUpRequest.prototype.serializeBinary = function() {
  * @param {!jspb.BinaryWriter} writer
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.auth.SignUpRequest.serializeBinaryToWriter = function(message, writer) {
+proto.auth.SignUpRequest.serializeBinaryToWriter = function (message, writer) {
   var f = undefined;
   f = message.getLastname();
   if (f.length > 0) {
@@ -252,7 +253,7 @@ proto.auth.SignUpRequest.serializeBinaryToWriter = function(message, writer) {
  * optional string lastName = 1;
  * @return {string}
  */
-proto.auth.SignUpRequest.prototype.getLastname = function() {
+proto.auth.SignUpRequest.prototype.getLastname = function () {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
 };
 
@@ -261,7 +262,7 @@ proto.auth.SignUpRequest.prototype.getLastname = function() {
  * @param {string} value
  * @return {!proto.auth.SignUpRequest} returns this
  */
-proto.auth.SignUpRequest.prototype.setLastname = function(value) {
+proto.auth.SignUpRequest.prototype.setLastname = function (value) {
   return jspb.Message.setProto3StringField(this, 1, value);
 };
 
@@ -270,7 +271,7 @@ proto.auth.SignUpRequest.prototype.setLastname = function(value) {
  * optional string firstName = 2;
  * @return {string}
  */
-proto.auth.SignUpRequest.prototype.getFirstname = function() {
+proto.auth.SignUpRequest.prototype.getFirstname = function () {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
 };
 
@@ -279,7 +280,7 @@ proto.auth.SignUpRequest.prototype.getFirstname = function() {
  * @param {string} value
  * @return {!proto.auth.SignUpRequest} returns this
  */
-proto.auth.SignUpRequest.prototype.setFirstname = function(value) {
+proto.auth.SignUpRequest.prototype.setFirstname = function (value) {
   return jspb.Message.setProto3StringField(this, 2, value);
 };
 
@@ -288,7 +289,7 @@ proto.auth.SignUpRequest.prototype.setFirstname = function(value) {
  * optional string email = 3;
  * @return {string}
  */
-proto.auth.SignUpRequest.prototype.getEmail = function() {
+proto.auth.SignUpRequest.prototype.getEmail = function () {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
 };
 
@@ -297,7 +298,7 @@ proto.auth.SignUpRequest.prototype.getEmail = function() {
  * @param {string} value
  * @return {!proto.auth.SignUpRequest} returns this
  */
-proto.auth.SignUpRequest.prototype.setEmail = function(value) {
+proto.auth.SignUpRequest.prototype.setEmail = function (value) {
   return jspb.Message.setProto3StringField(this, 3, value);
 };
 
@@ -306,7 +307,7 @@ proto.auth.SignUpRequest.prototype.setEmail = function(value) {
  * optional string password = 4;
  * @return {string}
  */
-proto.auth.SignUpRequest.prototype.getPassword = function() {
+proto.auth.SignUpRequest.prototype.getPassword = function () {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 4, ""));
 };
 
@@ -315,7 +316,7 @@ proto.auth.SignUpRequest.prototype.getPassword = function() {
  * @param {string} value
  * @return {!proto.auth.SignUpRequest} returns this
  */
-proto.auth.SignUpRequest.prototype.setPassword = function(value) {
+proto.auth.SignUpRequest.prototype.setPassword = function (value) {
   return jspb.Message.setProto3StringField(this, 4, value);
 };
 
@@ -324,44 +325,44 @@ proto.auth.SignUpRequest.prototype.setPassword = function(value) {
 
 
 if (jspb.Message.GENERATE_TO_OBJECT) {
-/**
- * Creates an object representation of this proto.
- * Field names that are reserved in JavaScript and will be renamed to pb_name.
- * Optional fields that are not set will be set to undefined.
- * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
- * For the list of reserved names please see:
- *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
- * @param {boolean=} opt_includeInstance Deprecated. whether to include the
- *     JSPB instance for transitional soy proto support:
- *     http://goto/soy-param-migration
- * @return {!Object}
- */
-proto.auth.SignUpResponse.prototype.toObject = function(opt_includeInstance) {
-  return proto.auth.SignUpResponse.toObject(opt_includeInstance, this);
-};
-
-
-/**
- * Static version of the {@see toObject} method.
- * @param {boolean|undefined} includeInstance Deprecated. Whether to include
- *     the JSPB instance for transitional soy proto support:
- *     http://goto/soy-param-migration
- * @param {!proto.auth.SignUpResponse} msg The msg instance to transform.
- * @return {!Object}
- * @suppress {unusedLocalVariables} f is only used for nested messages
- */
-proto.auth.SignUpResponse.toObject = function(includeInstance, msg) {
-  var f, obj = {
-    result: jspb.Message.getBooleanFieldWithDefault(msg, 1, false),
-    token: jspb.Message.getFieldWithDefault(msg, 2, ""),
-    errorsMap: (f = msg.getErrorsMap()) ? f.toObject(includeInstance, undefined) : []
+  /**
+   * Creates an object representation of this proto.
+   * Field names that are reserved in JavaScript and will be renamed to pb_name.
+   * Optional fields that are not set will be set to undefined.
+   * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
+   * For the list of reserved names please see:
+   *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
+   * @param {boolean=} opt_includeInstance Deprecated. whether to include the
+   *     JSPB instance for transitional soy proto support:
+   *     http://goto/soy-param-migration
+   * @return {!Object}
+   */
+  proto.auth.SignUpResponse.prototype.toObject = function (opt_includeInstance) {
+    return proto.auth.SignUpResponse.toObject(opt_includeInstance, this);
   };
 
-  if (includeInstance) {
-    obj.$jspbMessageInstance = msg;
-  }
-  return obj;
-};
+
+  /**
+   * Static version of the {@see toObject} method.
+   * @param {boolean|undefined} includeInstance Deprecated. Whether to include
+   *     the JSPB instance for transitional soy proto support:
+   *     http://goto/soy-param-migration
+   * @param {!proto.auth.SignUpResponse} msg The msg instance to transform.
+   * @return {!Object}
+   * @suppress {unusedLocalVariables} f is only used for nested messages
+   */
+  proto.auth.SignUpResponse.toObject = function (includeInstance, msg) {
+    var f, obj = {
+      result: jspb.Message.getBooleanFieldWithDefault(msg, 1, false),
+      token: jspb.Message.getFieldWithDefault(msg, 2, ""),
+      errorsMap: (f = msg.getErrorsMap()) ? f.toObject(includeInstance, undefined) : []
+    };
+
+    if (includeInstance) {
+      obj.$jspbMessageInstance = msg;
+    }
+    return obj;
+  };
 }
 
 
@@ -370,7 +371,7 @@ proto.auth.SignUpResponse.toObject = function(includeInstance, msg) {
  * @param {jspb.ByteSource} bytes The bytes to deserialize.
  * @return {!proto.auth.SignUpResponse}
  */
-proto.auth.SignUpResponse.deserializeBinary = function(bytes) {
+proto.auth.SignUpResponse.deserializeBinary = function (bytes) {
   var reader = new jspb.BinaryReader(bytes);
   var msg = new proto.auth.SignUpResponse;
   return proto.auth.SignUpResponse.deserializeBinaryFromReader(msg, reader);
@@ -384,30 +385,30 @@ proto.auth.SignUpResponse.deserializeBinary = function(bytes) {
  * @param {!jspb.BinaryReader} reader The BinaryReader to use.
  * @return {!proto.auth.SignUpResponse}
  */
-proto.auth.SignUpResponse.deserializeBinaryFromReader = function(msg, reader) {
+proto.auth.SignUpResponse.deserializeBinaryFromReader = function (msg, reader) {
   while (reader.nextField()) {
     if (reader.isEndGroup()) {
       break;
     }
     var field = reader.getFieldNumber();
     switch (field) {
-    case 1:
-      var value = /** @type {boolean} */ (reader.readBool());
-      msg.setResult(value);
-      break;
-    case 2:
-      var value = /** @type {string} */ (reader.readString());
-      msg.setToken(value);
-      break;
-    case 3:
-      var value = msg.getErrorsMap();
-      reader.readMessage(value, function(message, reader) {
-        jspb.Map.deserializeBinary(message, reader, jspb.BinaryReader.prototype.readString, jspb.BinaryReader.prototype.readString, null, "", "");
-         });
-      break;
-    default:
-      reader.skipField();
-      break;
+      case 1:
+        var value = /** @type {boolean} */ (reader.readBool());
+        msg.setResult(value);
+        break;
+      case 2:
+        var value = /** @type {string} */ (reader.readString());
+        msg.setToken(value);
+        break;
+      case 3:
+        var value = msg.getErrorsMap();
+        reader.readMessage(value, function (message, reader) {
+          jspb.Map.deserializeBinary(message, reader, jspb.BinaryReader.prototype.readString, jspb.BinaryReader.prototype.readString, null, "", "");
+        });
+        break;
+      default:
+        reader.skipField();
+        break;
     }
   }
   return msg;
@@ -418,7 +419,7 @@ proto.auth.SignUpResponse.deserializeBinaryFromReader = function(msg, reader) {
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
-proto.auth.SignUpResponse.prototype.serializeBinary = function() {
+proto.auth.SignUpResponse.prototype.serializeBinary = function () {
   var writer = new jspb.BinaryWriter();
   proto.auth.SignUpResponse.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
@@ -432,7 +433,7 @@ proto.auth.SignUpResponse.prototype.serializeBinary = function() {
  * @param {!jspb.BinaryWriter} writer
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.auth.SignUpResponse.serializeBinaryToWriter = function(message, writer) {
+proto.auth.SignUpResponse.serializeBinaryToWriter = function (message, writer) {
   var f = undefined;
   f = message.getResult();
   if (f) {
@@ -459,7 +460,7 @@ proto.auth.SignUpResponse.serializeBinaryToWriter = function(message, writer) {
  * optional bool result = 1;
  * @return {boolean}
  */
-proto.auth.SignUpResponse.prototype.getResult = function() {
+proto.auth.SignUpResponse.prototype.getResult = function () {
   return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 1, false));
 };
 
@@ -468,7 +469,7 @@ proto.auth.SignUpResponse.prototype.getResult = function() {
  * @param {boolean} value
  * @return {!proto.auth.SignUpResponse} returns this
  */
-proto.auth.SignUpResponse.prototype.setResult = function(value) {
+proto.auth.SignUpResponse.prototype.setResult = function (value) {
   return jspb.Message.setProto3BooleanField(this, 1, value);
 };
 
@@ -477,7 +478,7 @@ proto.auth.SignUpResponse.prototype.setResult = function(value) {
  * optional string token = 2;
  * @return {string}
  */
-proto.auth.SignUpResponse.prototype.getToken = function() {
+proto.auth.SignUpResponse.prototype.getToken = function () {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
 };
 
@@ -486,7 +487,7 @@ proto.auth.SignUpResponse.prototype.getToken = function() {
  * @param {string} value
  * @return {!proto.auth.SignUpResponse} returns this
  */
-proto.auth.SignUpResponse.prototype.setToken = function(value) {
+proto.auth.SignUpResponse.prototype.setToken = function (value) {
   return jspb.Message.setProto3StringField(this, 2, value);
 };
 
@@ -497,9 +498,9 @@ proto.auth.SignUpResponse.prototype.setToken = function(value) {
  * empty, instead returning `undefined`
  * @return {!jspb.Map<string,string>}
  */
-proto.auth.SignUpResponse.prototype.getErrorsMap = function(opt_noLazyCreate) {
+proto.auth.SignUpResponse.prototype.getErrorsMap = function (opt_noLazyCreate) {
   return /** @type {!jspb.Map<string,string>} */ (
-      jspb.Message.getMapField(this, 3, opt_noLazyCreate,
+    jspb.Message.getMapField(this, 3, opt_noLazyCreate,
       null));
 };
 
@@ -508,52 +509,53 @@ proto.auth.SignUpResponse.prototype.getErrorsMap = function(opt_noLazyCreate) {
  * Clears values from the map. The map will be non-null.
  * @return {!proto.auth.SignUpResponse} returns this
  */
-proto.auth.SignUpResponse.prototype.clearErrorsMap = function() {
+proto.auth.SignUpResponse.prototype.clearErrorsMap = function () {
   this.getErrorsMap().clear();
-  return this;};
+  return this;
+};
 
 
 
 
 
 if (jspb.Message.GENERATE_TO_OBJECT) {
-/**
- * Creates an object representation of this proto.
- * Field names that are reserved in JavaScript and will be renamed to pb_name.
- * Optional fields that are not set will be set to undefined.
- * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
- * For the list of reserved names please see:
- *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
- * @param {boolean=} opt_includeInstance Deprecated. whether to include the
- *     JSPB instance for transitional soy proto support:
- *     http://goto/soy-param-migration
- * @return {!Object}
- */
-proto.auth.LogInRequest.prototype.toObject = function(opt_includeInstance) {
-  return proto.auth.LogInRequest.toObject(opt_includeInstance, this);
-};
-
-
-/**
- * Static version of the {@see toObject} method.
- * @param {boolean|undefined} includeInstance Deprecated. Whether to include
- *     the JSPB instance for transitional soy proto support:
- *     http://goto/soy-param-migration
- * @param {!proto.auth.LogInRequest} msg The msg instance to transform.
- * @return {!Object}
- * @suppress {unusedLocalVariables} f is only used for nested messages
- */
-proto.auth.LogInRequest.toObject = function(includeInstance, msg) {
-  var f, obj = {
-    email: jspb.Message.getFieldWithDefault(msg, 1, ""),
-    password: jspb.Message.getFieldWithDefault(msg, 2, "")
+  /**
+   * Creates an object representation of this proto.
+   * Field names that are reserved in JavaScript and will be renamed to pb_name.
+   * Optional fields that are not set will be set to undefined.
+   * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
+   * For the list of reserved names please see:
+   *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
+   * @param {boolean=} opt_includeInstance Deprecated. whether to include the
+   *     JSPB instance for transitional soy proto support:
+   *     http://goto/soy-param-migration
+   * @return {!Object}
+   */
+  proto.auth.LogInRequest.prototype.toObject = function (opt_includeInstance) {
+    return proto.auth.LogInRequest.toObject(opt_includeInstance, this);
   };
 
-  if (includeInstance) {
-    obj.$jspbMessageInstance = msg;
-  }
-  return obj;
-};
+
+  /**
+   * Static version of the {@see toObject} method.
+   * @param {boolean|undefined} includeInstance Deprecated. Whether to include
+   *     the JSPB instance for transitional soy proto support:
+   *     http://goto/soy-param-migration
+   * @param {!proto.auth.LogInRequest} msg The msg instance to transform.
+   * @return {!Object}
+   * @suppress {unusedLocalVariables} f is only used for nested messages
+   */
+  proto.auth.LogInRequest.toObject = function (includeInstance, msg) {
+    var f, obj = {
+      email: jspb.Message.getFieldWithDefault(msg, 1, ""),
+      password: jspb.Message.getFieldWithDefault(msg, 2, "")
+    };
+
+    if (includeInstance) {
+      obj.$jspbMessageInstance = msg;
+    }
+    return obj;
+  };
 }
 
 
@@ -562,7 +564,7 @@ proto.auth.LogInRequest.toObject = function(includeInstance, msg) {
  * @param {jspb.ByteSource} bytes The bytes to deserialize.
  * @return {!proto.auth.LogInRequest}
  */
-proto.auth.LogInRequest.deserializeBinary = function(bytes) {
+proto.auth.LogInRequest.deserializeBinary = function (bytes) {
   var reader = new jspb.BinaryReader(bytes);
   var msg = new proto.auth.LogInRequest;
   return proto.auth.LogInRequest.deserializeBinaryFromReader(msg, reader);
@@ -576,24 +578,24 @@ proto.auth.LogInRequest.deserializeBinary = function(bytes) {
  * @param {!jspb.BinaryReader} reader The BinaryReader to use.
  * @return {!proto.auth.LogInRequest}
  */
-proto.auth.LogInRequest.deserializeBinaryFromReader = function(msg, reader) {
+proto.auth.LogInRequest.deserializeBinaryFromReader = function (msg, reader) {
   while (reader.nextField()) {
     if (reader.isEndGroup()) {
       break;
     }
     var field = reader.getFieldNumber();
     switch (field) {
-    case 1:
-      var value = /** @type {string} */ (reader.readString());
-      msg.setEmail(value);
-      break;
-    case 2:
-      var value = /** @type {string} */ (reader.readString());
-      msg.setPassword(value);
-      break;
-    default:
-      reader.skipField();
-      break;
+      case 1:
+        var value = /** @type {string} */ (reader.readString());
+        msg.setEmail(value);
+        break;
+      case 2:
+        var value = /** @type {string} */ (reader.readString());
+        msg.setPassword(value);
+        break;
+      default:
+        reader.skipField();
+        break;
     }
   }
   return msg;
@@ -604,7 +606,7 @@ proto.auth.LogInRequest.deserializeBinaryFromReader = function(msg, reader) {
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
-proto.auth.LogInRequest.prototype.serializeBinary = function() {
+proto.auth.LogInRequest.prototype.serializeBinary = function () {
   var writer = new jspb.BinaryWriter();
   proto.auth.LogInRequest.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
@@ -618,7 +620,7 @@ proto.auth.LogInRequest.prototype.serializeBinary = function() {
  * @param {!jspb.BinaryWriter} writer
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.auth.LogInRequest.serializeBinaryToWriter = function(message, writer) {
+proto.auth.LogInRequest.serializeBinaryToWriter = function (message, writer) {
   var f = undefined;
   f = message.getEmail();
   if (f.length > 0) {
@@ -641,7 +643,7 @@ proto.auth.LogInRequest.serializeBinaryToWriter = function(message, writer) {
  * optional string email = 1;
  * @return {string}
  */
-proto.auth.LogInRequest.prototype.getEmail = function() {
+proto.auth.LogInRequest.prototype.getEmail = function () {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
 };
 
@@ -650,7 +652,7 @@ proto.auth.LogInRequest.prototype.getEmail = function() {
  * @param {string} value
  * @return {!proto.auth.LogInRequest} returns this
  */
-proto.auth.LogInRequest.prototype.setEmail = function(value) {
+proto.auth.LogInRequest.prototype.setEmail = function (value) {
   return jspb.Message.setProto3StringField(this, 1, value);
 };
 
@@ -659,7 +661,7 @@ proto.auth.LogInRequest.prototype.setEmail = function(value) {
  * optional string password = 2;
  * @return {string}
  */
-proto.auth.LogInRequest.prototype.getPassword = function() {
+proto.auth.LogInRequest.prototype.getPassword = function () {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
 };
 
@@ -668,7 +670,7 @@ proto.auth.LogInRequest.prototype.getPassword = function() {
  * @param {string} value
  * @return {!proto.auth.LogInRequest} returns this
  */
-proto.auth.LogInRequest.prototype.setPassword = function(value) {
+proto.auth.LogInRequest.prototype.setPassword = function (value) {
   return jspb.Message.setProto3StringField(this, 2, value);
 };
 
@@ -677,44 +679,44 @@ proto.auth.LogInRequest.prototype.setPassword = function(value) {
 
 
 if (jspb.Message.GENERATE_TO_OBJECT) {
-/**
- * Creates an object representation of this proto.
- * Field names that are reserved in JavaScript and will be renamed to pb_name.
- * Optional fields that are not set will be set to undefined.
- * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
- * For the list of reserved names please see:
- *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
- * @param {boolean=} opt_includeInstance Deprecated. whether to include the
- *     JSPB instance for transitional soy proto support:
- *     http://goto/soy-param-migration
- * @return {!Object}
- */
-proto.auth.LogInResponse.prototype.toObject = function(opt_includeInstance) {
-  return proto.auth.LogInResponse.toObject(opt_includeInstance, this);
-};
-
-
-/**
- * Static version of the {@see toObject} method.
- * @param {boolean|undefined} includeInstance Deprecated. Whether to include
- *     the JSPB instance for transitional soy proto support:
- *     http://goto/soy-param-migration
- * @param {!proto.auth.LogInResponse} msg The msg instance to transform.
- * @return {!Object}
- * @suppress {unusedLocalVariables} f is only used for nested messages
- */
-proto.auth.LogInResponse.toObject = function(includeInstance, msg) {
-  var f, obj = {
-    result: jspb.Message.getBooleanFieldWithDefault(msg, 1, false),
-    token: jspb.Message.getFieldWithDefault(msg, 2, ""),
-    errorsMap: (f = msg.getErrorsMap()) ? f.toObject(includeInstance, undefined) : []
+  /**
+   * Creates an object representation of this proto.
+   * Field names that are reserved in JavaScript and will be renamed to pb_name.
+   * Optional fields that are not set will be set to undefined.
+   * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
+   * For the list of reserved names please see:
+   *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
+   * @param {boolean=} opt_includeInstance Deprecated. whether to include the
+   *     JSPB instance for transitional soy proto support:
+   *     http://goto/soy-param-migration
+   * @return {!Object}
+   */
+  proto.auth.LogInResponse.prototype.toObject = function (opt_includeInstance) {
+    return proto.auth.LogInResponse.toObject(opt_includeInstance, this);
   };
 
-  if (includeInstance) {
-    obj.$jspbMessageInstance = msg;
-  }
-  return obj;
-};
+
+  /**
+   * Static version of the {@see toObject} method.
+   * @param {boolean|undefined} includeInstance Deprecated. Whether to include
+   *     the JSPB instance for transitional soy proto support:
+   *     http://goto/soy-param-migration
+   * @param {!proto.auth.LogInResponse} msg The msg instance to transform.
+   * @return {!Object}
+   * @suppress {unusedLocalVariables} f is only used for nested messages
+   */
+  proto.auth.LogInResponse.toObject = function (includeInstance, msg) {
+    var f, obj = {
+      result: jspb.Message.getBooleanFieldWithDefault(msg, 1, false),
+      token: jspb.Message.getFieldWithDefault(msg, 2, ""),
+      errorsMap: (f = msg.getErrorsMap()) ? f.toObject(includeInstance, undefined) : []
+    };
+
+    if (includeInstance) {
+      obj.$jspbMessageInstance = msg;
+    }
+    return obj;
+  };
 }
 
 
@@ -723,7 +725,7 @@ proto.auth.LogInResponse.toObject = function(includeInstance, msg) {
  * @param {jspb.ByteSource} bytes The bytes to deserialize.
  * @return {!proto.auth.LogInResponse}
  */
-proto.auth.LogInResponse.deserializeBinary = function(bytes) {
+proto.auth.LogInResponse.deserializeBinary = function (bytes) {
   var reader = new jspb.BinaryReader(bytes);
   var msg = new proto.auth.LogInResponse;
   return proto.auth.LogInResponse.deserializeBinaryFromReader(msg, reader);
@@ -737,30 +739,30 @@ proto.auth.LogInResponse.deserializeBinary = function(bytes) {
  * @param {!jspb.BinaryReader} reader The BinaryReader to use.
  * @return {!proto.auth.LogInResponse}
  */
-proto.auth.LogInResponse.deserializeBinaryFromReader = function(msg, reader) {
+proto.auth.LogInResponse.deserializeBinaryFromReader = function (msg, reader) {
   while (reader.nextField()) {
     if (reader.isEndGroup()) {
       break;
     }
     var field = reader.getFieldNumber();
     switch (field) {
-    case 1:
-      var value = /** @type {boolean} */ (reader.readBool());
-      msg.setResult(value);
-      break;
-    case 2:
-      var value = /** @type {string} */ (reader.readString());
-      msg.setToken(value);
-      break;
-    case 3:
-      var value = msg.getErrorsMap();
-      reader.readMessage(value, function(message, reader) {
-        jspb.Map.deserializeBinary(message, reader, jspb.BinaryReader.prototype.readString, jspb.BinaryReader.prototype.readString, null, "", "");
-         });
-      break;
-    default:
-      reader.skipField();
-      break;
+      case 1:
+        var value = /** @type {boolean} */ (reader.readBool());
+        msg.setResult(value);
+        break;
+      case 2:
+        var value = /** @type {string} */ (reader.readString());
+        msg.setToken(value);
+        break;
+      case 3:
+        var value = msg.getErrorsMap();
+        reader.readMessage(value, function (message, reader) {
+          jspb.Map.deserializeBinary(message, reader, jspb.BinaryReader.prototype.readString, jspb.BinaryReader.prototype.readString, null, "", "");
+        });
+        break;
+      default:
+        reader.skipField();
+        break;
     }
   }
   return msg;
@@ -771,7 +773,7 @@ proto.auth.LogInResponse.deserializeBinaryFromReader = function(msg, reader) {
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
-proto.auth.LogInResponse.prototype.serializeBinary = function() {
+proto.auth.LogInResponse.prototype.serializeBinary = function () {
   var writer = new jspb.BinaryWriter();
   proto.auth.LogInResponse.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
@@ -785,7 +787,7 @@ proto.auth.LogInResponse.prototype.serializeBinary = function() {
  * @param {!jspb.BinaryWriter} writer
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.auth.LogInResponse.serializeBinaryToWriter = function(message, writer) {
+proto.auth.LogInResponse.serializeBinaryToWriter = function (message, writer) {
   var f = undefined;
   f = message.getResult();
   if (f) {
@@ -812,7 +814,7 @@ proto.auth.LogInResponse.serializeBinaryToWriter = function(message, writer) {
  * optional bool result = 1;
  * @return {boolean}
  */
-proto.auth.LogInResponse.prototype.getResult = function() {
+proto.auth.LogInResponse.prototype.getResult = function () {
   return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 1, false));
 };
 
@@ -821,7 +823,7 @@ proto.auth.LogInResponse.prototype.getResult = function() {
  * @param {boolean} value
  * @return {!proto.auth.LogInResponse} returns this
  */
-proto.auth.LogInResponse.prototype.setResult = function(value) {
+proto.auth.LogInResponse.prototype.setResult = function (value) {
   return jspb.Message.setProto3BooleanField(this, 1, value);
 };
 
@@ -830,7 +832,7 @@ proto.auth.LogInResponse.prototype.setResult = function(value) {
  * optional string token = 2;
  * @return {string}
  */
-proto.auth.LogInResponse.prototype.getToken = function() {
+proto.auth.LogInResponse.prototype.getToken = function () {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
 };
 
@@ -839,7 +841,7 @@ proto.auth.LogInResponse.prototype.getToken = function() {
  * @param {string} value
  * @return {!proto.auth.LogInResponse} returns this
  */
-proto.auth.LogInResponse.prototype.setToken = function(value) {
+proto.auth.LogInResponse.prototype.setToken = function (value) {
   return jspb.Message.setProto3StringField(this, 2, value);
 };
 
@@ -850,9 +852,9 @@ proto.auth.LogInResponse.prototype.setToken = function(value) {
  * empty, instead returning `undefined`
  * @return {!jspb.Map<string,string>}
  */
-proto.auth.LogInResponse.prototype.getErrorsMap = function(opt_noLazyCreate) {
+proto.auth.LogInResponse.prototype.getErrorsMap = function (opt_noLazyCreate) {
   return /** @type {!jspb.Map<string,string>} */ (
-      jspb.Message.getMapField(this, 3, opt_noLazyCreate,
+    jspb.Message.getMapField(this, 3, opt_noLazyCreate,
       null));
 };
 
@@ -861,9 +863,10 @@ proto.auth.LogInResponse.prototype.getErrorsMap = function(opt_noLazyCreate) {
  * Clears values from the map. The map will be non-null.
  * @return {!proto.auth.LogInResponse} returns this
  */
-proto.auth.LogInResponse.prototype.clearErrorsMap = function() {
+proto.auth.LogInResponse.prototype.clearErrorsMap = function () {
   this.getErrorsMap().clear();
-  return this;};
+  return this;
+};
 
 
 goog.object.extend(exports, proto.auth);
