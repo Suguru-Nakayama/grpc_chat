@@ -15,7 +15,8 @@ services:
             dockerfile: ./docker/api/Dockerfile
         container_name: api
         environment: 
-            JWT_SECRET: ${AUTH_SECRET}
+            FIREBASE_SECRET: ${FIREBASE_SECRET_PATH}
+            FIREBASE_PROJECT_ID: ${FIREBASE_PROJECT_ID}
             DB_USER: ${MYSQL_USER}
             DB_PASSWORD: ${MYSQL_PASSWORD}
         ports: 

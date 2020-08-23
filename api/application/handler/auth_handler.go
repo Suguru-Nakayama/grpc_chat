@@ -2,8 +2,11 @@ package handler
 
 import (
 	"context"
+	"grpc-chat/api/application/infrastructure/persistence"
 	"grpc-chat/api/application/usecase"
 	"grpc-chat/api/gen/pb"
+
+	"github.com/jinzhu/gorm"
 )
 
 type AuthHandler interface {
@@ -13,9 +16,11 @@ type authHandler struct {
 	authUseCase usecase.AuthUseCase
 }
 
-func NewAuthHandler(au usecase.AuthUseCase) AuthHandler {
+func NewAuthHandler(db *gorm.DB) AuthHandler {
+	userPersistence := persistence.NewUserPesistence(db)
+
 	return authHandler{
-		authUseCase: au,
+		authUseCase: usecase.NewAuthUseCase(userPersistence),
 	}
 }
 
