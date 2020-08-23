@@ -35,3 +35,10 @@ func (up userPersistence) Create(
 
 	return user, nil
 }
+
+func (up userPersistence) FindByEmail(email string) *model.User {
+	user := &model.User{}
+	up.db.Where("email = ?", email).First(user)
+
+	return user
+}

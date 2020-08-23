@@ -9,10 +9,14 @@ import (
 	"grpc-chat/api/gen/pb"
 
 	fauth "firebase.google.com/go/auth"
+	"golang.org/x/crypto/bcrypt"
+	"google.golang.org/grpc/codes"
+	"google.golang.org/grpc/status"
 )
 
 type AuthUseCase interface {
 	SignUp(lastName, firstName, email, password string) (*pb.SignUpResponse, error)
+	LogIn(email, password string) (*pb.LogInResponse, error)
 }
 
 type authUseCase struct {
@@ -70,6 +74,62 @@ func (au *authUseCase) SignUp(
 	}
 
 	return &pb.SignUpResponse{
+		Result: true,
+		Token:  token,
+		Errors: nil,
+	}, nil
+}
+
+/*
+ * ログイン
+ * メールアドレスとパスワードで認証を行いFirebaseによる認証トークンを生成する
+ */
+func (au *authUseCase) LogIn(email, password string) (*pb.LogInResponse, error) {
+	// 入力バリデーション
+	v := validation.NewLogInValidator(email, password)
+	errors := v.Validate()
+	if len(errors) > 0 {
+		return &pb.LogInResponse{
+			Result: false,
+			Token:  "",
+			Errors: errors,
+		}, nil
+	}
+
+	user := au.userRepository.FindByEmail(email)
+	if user == nil {
+		st := status.New(codes.NotFound, "No user found for the email address")
+		return nil, st.Err()
+	}
+
+	err := bcrypt.CompareHashAndPassword([]byte(user.Password), []byte(password))
+
+	// パスワード認証チェック
+	if err != nil {
+		st := status.New(codes.Unauthenticated, "Authorize failed")
+		return nil, st.Err()
+	}
+
+	// Firebase Client取得
+	client, err := config.NewFirebaseAuthClient()
+	if err != nil {
+		return nil, err
+	}
+
+	// Firebase Authentication上のユーザーを取得
+	firebaseUser, err := client.GetUserByEmail(context.Background(), email)
+	if err != nil {
+		st := status.New(codes.Internal, "Firebase user not found")
+		return nil, st.Err()
+	}
+
+	// 認証トークン生成
+	token, err := client.CustomToken(context.Background(), firebaseUser.UID)
+	if err != nil {
+		return nil, fmt.Errorf("error minting custom token: %v\n", err)
+	}
+
+	return &pb.LogInResponse{
 		Result: true,
 		Token:  token,
 		Errors: nil,

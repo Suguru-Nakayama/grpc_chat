@@ -12,6 +12,7 @@ require (
 	github.com/jinzhu/gorm v1.9.15
 	golang.org/x/crypto v0.0.0-20200622213623-75b288015ac9
 	google.golang.org/api v0.30.0
+	google.golang.org/genproto v0.0.0-20200804131852-c06518451d9c
 	google.golang.org/grpc v1.31.0
 	google.golang.org/protobuf v1.25.0
 )

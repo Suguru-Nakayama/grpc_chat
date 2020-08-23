@@ -150,5 +150,85 @@ proto.auth.AuthPromiseClient.prototype.signUp =
 };
 
 
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.auth.LogInRequest,
+ *   !proto.auth.LogInResponse>}
+ */
+const methodDescriptor_Auth_LogIn = new grpc.web.MethodDescriptor(
+  '/auth.Auth/LogIn',
+  grpc.web.MethodType.UNARY,
+  proto.auth.LogInRequest,
+  proto.auth.LogInResponse,
+  /**
+   * @param {!proto.auth.LogInRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.auth.LogInResponse.deserializeBinary
+);
+
+
+/**
+ * @const
+ * @type {!grpc.web.AbstractClientBase.MethodInfo<
+ *   !proto.auth.LogInRequest,
+ *   !proto.auth.LogInResponse>}
+ */
+const methodInfo_Auth_LogIn = new grpc.web.AbstractClientBase.MethodInfo(
+  proto.auth.LogInResponse,
+  /**
+   * @param {!proto.auth.LogInRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.auth.LogInResponse.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.auth.LogInRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.Error, ?proto.auth.LogInResponse)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.auth.LogInResponse>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.auth.AuthClient.prototype.logIn =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/auth.Auth/LogIn',
+      request,
+      metadata || {},
+      methodDescriptor_Auth_LogIn,
+      callback);
+};
+
+
+/**
+ * @param {!proto.auth.LogInRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.auth.LogInResponse>}
+ *     A native promise that resolves to the response
+ */
+proto.auth.AuthPromiseClient.prototype.logIn =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/auth.Auth/LogIn',
+      request,
+      metadata || {},
+      methodDescriptor_Auth_LogIn);
+};
+
+
 module.exports = proto.auth;
 

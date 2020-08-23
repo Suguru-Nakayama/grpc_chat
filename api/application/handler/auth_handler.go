@@ -11,6 +11,7 @@ import (
 
 type AuthHandler interface {
 	SignUp(context.Context, *pb.SignUpRequest) (*pb.SignUpResponse, error)
+	LogIn(context.Context, *pb.LogInRequest) (*pb.LogInResponse, error)
 }
 type authHandler struct {
 	authUseCase usecase.AuthUseCase
@@ -34,6 +35,20 @@ func (ah authHandler) SignUp(
 	password := req.GetPassword()
 
 	res, err := ah.authUseCase.SignUp(lastName, firstName, email, password)
+	if err != nil {
+		return res, err
+	}
+
+	return res, nil
+}
+
+func (ah authHandler) LogIn(
+	ctx context.Context, req *pb.LogInRequest) (*pb.LogInResponse, error) {
+
+	email := req.GetEmail()
+	password := req.GetPassword()
+
+	res, err := ah.authUseCase.LogIn(email, password)
 	if err != nil {
 		return res, err
 	}
