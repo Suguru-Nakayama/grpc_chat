@@ -3,6 +3,8 @@ package main
 import (
 	"grpc-chat/api/application/config"
 	"grpc-chat/api/application/handler"
+	"grpc-chat/api/application/infrastructure/persistence"
+	"grpc-chat/api/application/usecase"
 	"grpc-chat/api/gen/pb"
 	"log"
 	"net"
@@ -24,7 +26,9 @@ func main() {
 	if err != nil {
 		log.Fatalf("Cannot connect db, %v\n", err)
 	}
-	ah := handler.NewAuthHandler(db)
+	up := persistence.NewUserPesistence(db)
+	au := usecase.NewAuthUseCase(up)
+	ah := handler.NewAuthHandler(au)
 
 	pb.RegisterAuthServer(s, ah)
 	reflection.Register(s)

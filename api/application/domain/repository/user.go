@@ -5,5 +5,5 @@ import (
 )
 
 type UserRepository interface {
-	Create(lastName, firstName, uid string) (*model.User, error)
+	Create(lastName, firstName, email, password string) (*model.User, error)
 }
