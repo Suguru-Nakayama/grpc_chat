@@ -10,7 +10,6 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import { auth } from '../Firebase';
-import { Redirect } from 'react-router-dom';
 import AlertMessage from '../components/AlertMessage';
 import { AuthClient } from '../gen/pb/auth_grpc_web_pb';
 import { SignUpRequest } from '../gen/pb/auth_pb';
@@ -45,7 +44,7 @@ const Signup = () => {
     const [authError, setAuthError] = useState("");
 
     /*
-     * サインアップ処理
+     * 登録ボタン押下時のイベントハンドラ
      */
     const handleSubmit = e => {
         e.preventDefault();
@@ -62,18 +61,7 @@ const Signup = () => {
     /*
      * サインアップ処理
      */
-    const signup = async () => {
-        const token = await callSignUpRPC();
-        auth.signInWithCustomToken(token).catch(err => {
-            setAuthError("アカウント登録時にエラーが発生しました");
-            return;
-        })
-    }
-
-    /*
-     * SignUp RPCの実行
-     */
-    const callSignUpRPC = async () => {
+    const signup = () => {
         const request = new SignUpRequest();
 
         request.setLastname(lastName);
@@ -82,16 +70,17 @@ const Signup = () => {
         request.setPassword(password);
 
         const client = new AuthClient("http://localhost:8080")
-
-        let token = "";
         client.signUp(request, {}, (err, response) => {
             if (err) {
                 setAuthError(err.message);
                 return;
             }
-            token = response.getToken();
+            const token = response.getToken();
+            auth.signInWithCustomToken(token).catch(err => {
+                setAuthError("アカウント登録時にエラーが発生しました");
+                return;
+            })
         })
-        return token;
     }
 
     /*
@@ -118,7 +107,7 @@ const Signup = () => {
         return errors;
     }
 
-    return auth.currentUser ? <Redirect to="/" /> : (
+    return (
         <Container component="main" maxWidth="xs">
             <CssBaseline />
             <div className={classes.paper}>
