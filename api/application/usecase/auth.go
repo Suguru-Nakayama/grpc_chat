@@ -10,6 +10,7 @@ import (
 
 	fauth "firebase.google.com/go/auth"
 	"golang.org/x/crypto/bcrypt"
+	"google.golang.org/genproto/googleapis/rpc/errdetails"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 )
@@ -39,11 +40,11 @@ func (au *authUseCase) SignUp(
 	v := validation.NewSignUpValidator(lastName, firstName, email, password)
 	errors := v.Validate()
 	if len(errors) > 0 {
-		return &pb.SignUpResponse{
-			Result: false,
-			Token:  "",
-			Errors: errors,
-		}, nil
+		st := status.New(codes.InvalidArgument, "validation error")
+		dt, _ := st.WithDetails(&errdetails.BadRequest{
+			FieldViolations: validation.ConvertToBadRequestDetails(errors),
+		})
+		return nil, dt.Err()
 	}
 
 	// Firebase Client取得
@@ -89,24 +90,28 @@ func (au *authUseCase) LogIn(email, password string) (*pb.LogInResponse, error) 
 	v := validation.NewLogInValidator(email, password)
 	errors := v.Validate()
 	if len(errors) > 0 {
-		return &pb.LogInResponse{
-			Result: false,
-			Token:  "",
-			Errors: errors,
-		}, nil
+		st := status.New(codes.InvalidArgument, "validation error")
+		dt, _ := st.WithDetails(&errdetails.BadRequest{
+			FieldViolations: validation.ConvertToBadRequestDetails(errors),
+		})
+		return nil, dt.Err()
 	}
 
+	// メールアドレスによるユーザーの存在確認
 	user := au.userRepository.FindByEmail(email)
 	if user == nil {
-		st := status.New(codes.NotFound, "No user found for the email address")
-		return nil, st.Err()
+		st := status.New(codes.InvalidArgument, "validation error")
+		dt, _ := st.WithDetails(&errdetails.BadRequest{
+			FieldViolations: validation.ConvertToBadRequestDetails(
+				map[string]string{"email": "メールアドレスを持つユーザーが見つかりません"}),
+		})
+		return nil, dt.Err()
 	}
 
-	err := bcrypt.CompareHashAndPassword([]byte(user.Password), []byte(password))
-
 	// パスワード認証チェック
+	err := bcrypt.CompareHashAndPassword([]byte(user.Password), []byte(password))
 	if err != nil {
-		st := status.New(codes.Unauthenticated, "Authorize failed")
+		st := status.New(codes.Unauthenticated, "ログインに失敗しました")
 		return nil, st.Err()
 	}
 

@@ -8,7 +8,6 @@
  */
 // GENERATED CODE -- DO NOT EDIT!
 /* eslint-disable */
-
 var jspb = require('google-protobuf');
 var goog = jspb;
 var global = Function('return this')();
@@ -354,8 +353,7 @@ if (jspb.Message.GENERATE_TO_OBJECT) {
   proto.auth.SignUpResponse.toObject = function (includeInstance, msg) {
     var f, obj = {
       result: jspb.Message.getBooleanFieldWithDefault(msg, 1, false),
-      token: jspb.Message.getFieldWithDefault(msg, 2, ""),
-      errorsMap: (f = msg.getErrorsMap()) ? f.toObject(includeInstance, undefined) : []
+      token: jspb.Message.getFieldWithDefault(msg, 2, "")
     };
 
     if (includeInstance) {
@@ -400,12 +398,6 @@ proto.auth.SignUpResponse.deserializeBinaryFromReader = function (msg, reader) {
         var value = /** @type {string} */ (reader.readString());
         msg.setToken(value);
         break;
-      case 3:
-        var value = msg.getErrorsMap();
-        reader.readMessage(value, function (message, reader) {
-          jspb.Map.deserializeBinary(message, reader, jspb.BinaryReader.prototype.readString, jspb.BinaryReader.prototype.readString, null, "", "");
-        });
-        break;
       default:
         reader.skipField();
         break;
@@ -449,10 +441,6 @@ proto.auth.SignUpResponse.serializeBinaryToWriter = function (message, writer) {
       f
     );
   }
-  f = message.getErrorsMap(true);
-  if (f && f.getLength() > 0) {
-    f.serializeBinary(3, writer, jspb.BinaryWriter.prototype.writeString, jspb.BinaryWriter.prototype.writeString);
-  }
 };
 
 
@@ -489,29 +477,6 @@ proto.auth.SignUpResponse.prototype.getToken = function () {
  */
 proto.auth.SignUpResponse.prototype.setToken = function (value) {
   return jspb.Message.setProto3StringField(this, 2, value);
-};
-
-
-/**
- * map<string, string> errors = 3;
- * @param {boolean=} opt_noLazyCreate Do not create the map if
- * empty, instead returning `undefined`
- * @return {!jspb.Map<string,string>}
- */
-proto.auth.SignUpResponse.prototype.getErrorsMap = function (opt_noLazyCreate) {
-  return /** @type {!jspb.Map<string,string>} */ (
-    jspb.Message.getMapField(this, 3, opt_noLazyCreate,
-      null));
-};
-
-
-/**
- * Clears values from the map. The map will be non-null.
- * @return {!proto.auth.SignUpResponse} returns this
- */
-proto.auth.SignUpResponse.prototype.clearErrorsMap = function () {
-  this.getErrorsMap().clear();
-  return this;
 };
 
 
@@ -708,8 +673,7 @@ if (jspb.Message.GENERATE_TO_OBJECT) {
   proto.auth.LogInResponse.toObject = function (includeInstance, msg) {
     var f, obj = {
       result: jspb.Message.getBooleanFieldWithDefault(msg, 1, false),
-      token: jspb.Message.getFieldWithDefault(msg, 2, ""),
-      errorsMap: (f = msg.getErrorsMap()) ? f.toObject(includeInstance, undefined) : []
+      token: jspb.Message.getFieldWithDefault(msg, 2, "")
     };
 
     if (includeInstance) {
@@ -754,12 +718,6 @@ proto.auth.LogInResponse.deserializeBinaryFromReader = function (msg, reader) {
         var value = /** @type {string} */ (reader.readString());
         msg.setToken(value);
         break;
-      case 3:
-        var value = msg.getErrorsMap();
-        reader.readMessage(value, function (message, reader) {
-          jspb.Map.deserializeBinary(message, reader, jspb.BinaryReader.prototype.readString, jspb.BinaryReader.prototype.readString, null, "", "");
-        });
-        break;
       default:
         reader.skipField();
         break;
@@ -803,10 +761,6 @@ proto.auth.LogInResponse.serializeBinaryToWriter = function (message, writer) {
       f
     );
   }
-  f = message.getErrorsMap(true);
-  if (f && f.getLength() > 0) {
-    f.serializeBinary(3, writer, jspb.BinaryWriter.prototype.writeString, jspb.BinaryWriter.prototype.writeString);
-  }
 };
 
 
@@ -843,29 +797,6 @@ proto.auth.LogInResponse.prototype.getToken = function () {
  */
 proto.auth.LogInResponse.prototype.setToken = function (value) {
   return jspb.Message.setProto3StringField(this, 2, value);
-};
-
-
-/**
- * map<string, string> errors = 3;
- * @param {boolean=} opt_noLazyCreate Do not create the map if
- * empty, instead returning `undefined`
- * @return {!jspb.Map<string,string>}
- */
-proto.auth.LogInResponse.prototype.getErrorsMap = function (opt_noLazyCreate) {
-  return /** @type {!jspb.Map<string,string>} */ (
-    jspb.Message.getMapField(this, 3, opt_noLazyCreate,
-      null));
-};
-
-
-/**
- * Clears values from the map. The map will be non-null.
- * @return {!proto.auth.LogInResponse} returns this
- */
-proto.auth.LogInResponse.prototype.clearErrorsMap = function () {
-  this.getErrorsMap().clear();
-  return this;
 };
 
 

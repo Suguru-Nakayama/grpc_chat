@@ -1,13 +1,11 @@
 package validation
 
 import (
-	"fmt"
-
 	"github.com/go-playground/validator/v10"
 )
 
 type LogInValidator struct {
-	Email    string `validate:"required"`
+	Email    string `validate:"required,email"`
 	Password string `validate:"required"`
 }
 
@@ -29,12 +27,14 @@ func (luv *LogInValidator) Validate() map[string]string {
 			case "Email":
 				switch err.ActualTag() {
 				case "required":
-					msg = fmt.Sprintf("メールアドレスを入力してください")
+					msg = "メールアドレスを入力してください"
+				case "email":
+					msg = "メールアドレスの形式で入力してください"
 				}
 			case "Password":
 				switch err.ActualTag() {
 				case "required":
-					msg = fmt.Sprintf("パスワードを入力してください")
+					msg = "パスワードを入力してください"
 				}
 			}
 			errors[field] = msg
