@@ -77,7 +77,6 @@ func (au *authUseCase) SignUp(
 	return &pb.SignUpResponse{
 		Result: true,
 		Token:  token,
-		Errors: nil,
 	}, nil
 }
 
@@ -137,6 +136,5 @@ func (au *authUseCase) LogIn(email, password string) (*pb.LogInResponse, error) 
 	return &pb.LogInResponse{
 		Result: true,
 		Token:  token,
-		Errors: nil,
 	}, nil
 }
