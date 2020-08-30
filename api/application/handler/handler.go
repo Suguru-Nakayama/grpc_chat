@@ -15,9 +15,11 @@ type handler struct {
 func NewHandler(db *gorm.DB) *handler {
 	return &handler{
 		authHandler: NewAuthHandler(db),
+		chatHandler: NewChatHandler(db),
 	}
 }
 
 func (h *handler) RegisterPBServer(s *grpc.Server) {
 	pb.RegisterAuthServer(s, h.authHandler)
+	pb.RegisterChatServer(s, h.chatHandler)
 }
