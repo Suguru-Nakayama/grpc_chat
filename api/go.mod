@@ -9,6 +9,7 @@ require (
 	github.com/go-playground/validator v9.31.0+incompatible
 	github.com/go-playground/validator/v10 v10.3.0
 	github.com/golang/protobuf v1.4.2
+	github.com/grpc-ecosystem/go-grpc-middleware v1.2.1
 	github.com/jinzhu/gorm v1.9.15
 	golang.org/x/crypto v0.0.0-20200622213623-75b288015ac9
 	google.golang.org/api v0.30.0
