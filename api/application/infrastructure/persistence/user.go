@@ -42,3 +42,11 @@ func (up userPersistence) FindByEmail(email string) *model.User {
 
 	return user
 }
+
+func (up userPersistence) FindAllByIds(userIds []uint32) ([]*model.User, error) {
+	users := make([]*model.User, 0)
+	if result := up.db.Find(users, userIds); result.Error != nil {
+		return nil, result.Error
+	}
+	return users, nil
+}

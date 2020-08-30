@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package chat;
+option go_package="gen/pb";
+
+service Chat {
+    rpc CreateChatRoom(CreateChatRoomRequest) returns (CreateChatRoomResponse);
+}
+
+message CreateChatRoomRequest {
+    repeated uint32 userIds = 1;
+}
+
+message CreateChatRoomResponse {
+    uint32 chatRoomId = 1;
+    string roomName = 2;
+    string roomIcon = 3;
+    string lastMessageText = 4;
+    int64 lastMessageTimestamp = 5;
+    uint32 unreadCount = 6;
+}
